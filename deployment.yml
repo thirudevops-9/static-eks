@@ -1,0 +1,20 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: index-deployment
+  namespace: index
+spec:
+  selector:
+    matchLabels:
+      app: index-deployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: index-deployment
+    spec:
+      containers:
+      - name: index-deployment
+        image:  908207384553.dkr.ecr.us-east-2.amazonaws.com/static-eks:1
+        ports:
+        - containerPort: 80

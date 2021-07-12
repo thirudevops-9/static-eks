@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: index-service
+  namespace: index
+spec:
+  selector:
+    app: index-deployment
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer    
